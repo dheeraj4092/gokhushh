@@ -80,7 +80,7 @@ const AdvertiserSection = () => {
             For Local Businesses
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Reach customers when they're most engaged - during their rides. Our platform offers unprecedented targeting and ROI for local businesses.
+            Reach customers when they&apos;re most engaged - during their rides. Our platform offers unprecedented targeting and ROI for local businesses.
           </p>
         </motion.div>
 

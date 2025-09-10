@@ -57,7 +57,7 @@ const DriverDashboard = () => {
         <div className="bg-white rounded-2xl p-6 shadow-lg">
           <div className="text-center">
             <h4 className="text-lg font-semibold text-gray-900 mb-2">
-              Today's Earnings
+              Today&apos;s Earnings
             </h4>
             <div className="text-3xl font-bold text-brand-green mb-2">
               ₹{earnings.toFixed(2)}

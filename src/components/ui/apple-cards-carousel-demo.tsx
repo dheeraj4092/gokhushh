@@ -108,7 +108,7 @@ const InRideExperienceContent = () => {
           >
             <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
               <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                During your ride, you'll see carefully curated ads for local businesses.
+                During your ride, you&apos;ll see carefully curated ads for local businesses.
               </span>{" "}
               These ads are relevant to your location and preferences, creating value 
               for everyone while making transportation more affordable.
@@ -222,31 +222,31 @@ const data = [
   {
     category: "The Problem",
     title: "Why do rides cost so much... and drivers earn so little?",
-    //src: "https://unsplash.com/photos/mature-businessman-with-bag-standing-on-the-street-in-city-of-prague-raising-his-hand-to-hail-a-taxi-cab-xx66QGzEJiA",
+    src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop&crop=center",
     content: <CommissionProblemContent />,
   },
   {
     category: "The Solution",
     title: "What if ads could make rides affordable for everyone?",
-    //src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop&crop=center",
+    src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop&crop=center",
     content: <AdSupportedContent />,
   },
   {
     category: "The Experience",
     title: "The magic happens during your ride",
-    //src: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=500&h=300&fit=crop&crop=center",
+    src: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=500&h=300&fit=crop&crop=center",
     content: <InRideExperienceContent />,
   },
   {
     category: "The Result",
     title: "Everyone wins with our platform",
-    //src: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop&crop=center",
+    src: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop&crop=center",
     content: <TripleWinContent />,
   },
   {
     category: "Why Now",
     title: "Built by ad tech experts who understand what businesses need",
-    //src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?w=500&h=300&fit=crop&crop=center",
+    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?w=500&h=300&fit=crop&crop=center",
     content: <WhyNowContent />,
   },
 ];

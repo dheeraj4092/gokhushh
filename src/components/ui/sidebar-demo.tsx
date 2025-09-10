@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import {
   IconHome,
@@ -105,7 +106,7 @@ export default function SidebarDemo() {
 
 export const Logo = () => {
   return (
-    <a
+    <Link
       href="/"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-white"
     >
@@ -117,18 +118,18 @@ export const Logo = () => {
       >
         RideHail
       </motion.span>
-    </a>
+    </Link>
   );
 };
 
 export const LogoIcon = () => {
   return (
-    <a
+    <Link
       href="/"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-white"
     >
       <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-brand-green" />
-    </a>
+    </Link>
   );
 };
 

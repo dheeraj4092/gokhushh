@@ -50,7 +50,7 @@ const ContactSection = () => {
     }
   ]
 
-  const onSubmit = async (data: ContactForm) => {
+  const onSubmit = async (_data: ContactForm) => {
     setIsSubmitting(true)
     
     // Simulate form submission
@@ -101,7 +101,7 @@ const ContactSection = () => {
             Get in Touch
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to join our platform or have questions? We'd love to hear from you.
+            Ready to join our platform or have questions? We&apos;d love to hear from you.
           </p>
         </motion.div>
 

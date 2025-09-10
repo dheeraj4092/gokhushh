@@ -128,7 +128,7 @@ export default function ExpandableCardDemo() {
         ) : null}
       </AnimatePresence>
       <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4">
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={card.title}
@@ -282,7 +282,7 @@ const cards = [
       return (
         <div>
           <p className="mb-4">
-            During your ride, you'll see carefully curated ads for local businesses 
+            During your ride, you&apos;ll see carefully curated ads for local businesses 
             that are relevant to your location and preferences.
           </p>
           <div className="space-y-3">

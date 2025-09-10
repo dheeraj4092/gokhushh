@@ -79,7 +79,7 @@ const InteractiveSimulations = () => {
                 return (
                   <motion.button
                     key={simulation.id}
-                    onClick={() => setActiveSimulation(simulation.id as any)}
+                    onClick={() => setActiveSimulation(simulation.id as string)}
                     className={`p-3 sm:p-4 rounded-lg sm:rounded-xl text-left transition-all duration-300 ${
                       isActive
                         ? (() => {

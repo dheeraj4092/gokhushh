@@ -81,7 +81,7 @@ const AboutSection = () => {
             About Our Mission
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            We're building the future of transportation where everyone wins - riders save money, drivers earn more, and local businesses thrive.
+            We&apos;re building the future of transportation where everyone wins - riders save money, drivers earn more, and local businesses thrive.
           </p>
         </motion.div>
 
@@ -95,7 +95,7 @@ const AboutSection = () => {
           <Card className="p-6 sm:p-8 md:p-12 text-center bg-gradient-to-r from-brand-blue/5 to-brand-green/5">
             <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-brand-blue mx-auto mb-4 sm:mb-6" />
             <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-900 mb-6 sm:mb-8 leading-relaxed">
-              "We believe transportation should be affordable for riders, profitable for drivers, and beneficial for local communities. Our ad-supported model makes this vision a reality."
+              &ldquo;We believe transportation should be affordable for riders, profitable for drivers, and beneficial for local communities. Our ad-supported model makes this vision a reality.&rdquo;
             </blockquote>
             <div className="text-base sm:text-lg text-gray-600">
               - Priya Sharma, CEO & Co-Founder

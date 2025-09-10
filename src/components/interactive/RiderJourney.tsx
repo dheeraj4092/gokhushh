@@ -123,7 +123,7 @@ const RiderJourney = () => {
                   <span className="font-medium">Ad Playing...</span>
                 </div>
                 <div className="mt-2 text-sm opacity-90">
-                  "Discover amazing local restaurants near you!"
+                  &ldquo;Discover amazing local restaurants near you!&rdquo;
                 </div>
               </motion.div>
             )}

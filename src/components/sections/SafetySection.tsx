@@ -64,7 +64,7 @@ const SafetySection = () => {
             Safety First, Always
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Your safety is our top priority. We've built comprehensive safety features to ensure every ride is secure and comfortable.
+            Your safety is our top priority. We&apos;ve built comprehensive safety features to ensure every ride is secure and comfortable.
           </p>
         </motion.div>
 
