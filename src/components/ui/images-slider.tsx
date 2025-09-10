@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
 
 export const ImagesSlider = ({
   images,
@@ -38,7 +39,7 @@ export const ImagesSlider = ({
 
   const loadImage = (image: string): Promise<string> => {
     return new Promise<string>((resolve, reject) => {
-      const img = new Image();
+      const img = new window.Image();
       img.src = image;
       img.onload = () => resolve(image);
       img.onerror = reject;
@@ -138,9 +139,8 @@ export const ImagesSlider = ({
 
       {areImagesLoaded && (
         <AnimatePresence>
-          <motion.img
+          <motion.div
             key={currentIndex}
-            src={loadedImages[currentIndex]}
             initial="initial"
             animate="visible"
             exit={direction === "up" ? "upExit" : "downExit"}
@@ -149,8 +149,17 @@ export const ImagesSlider = ({
               duration: 0.5,
               ease: [0.645, 0.045, 0.355, 1.0],
             } as const}
-            className="image h-full w-full absolute inset-0 object-cover object-center"
-          />
+            className="image h-full w-full absolute inset-0"
+          >
+            <Image
+              src={loadedImages[currentIndex]}
+              alt="Hero background"
+              fill
+              className="object-cover object-center"
+              priority={currentIndex === 0}
+              sizes="100vw"
+            />
+          </motion.div>
         </AnimatePresence>
       )}
     </div>

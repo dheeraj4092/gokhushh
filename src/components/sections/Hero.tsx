@@ -15,12 +15,17 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-screen relative">
-      {/* Images Slider Background */}
-      <ImagesSliderDemo />
+    <section className="min-h-screen relative bg-brand-black">
+      {/* Mobile Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-dark to-brand-gray md:hidden" />
+      
+      {/* Desktop Images Slider Background */}
+      <div className="hidden md:block">
+        <ImagesSliderDemo />
+      </div>
       
       {/* Content Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center z-50">
+      <div className="relative z-50 flex items-center justify-center min-h-screen bg-black/20 md:absolute md:inset-0">
         <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           {/* Logo */}
           <div className="mb-8 sm:mb-12">
@@ -29,7 +34,7 @@ const Hero = () => {
 
           {/* Main Headline */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 sm:mb-8 leading-tight"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 sm:mb-8 leading-tight"
             {...animations.fadeInDelay(0.2)}
           >
             {content.hero.tagline}

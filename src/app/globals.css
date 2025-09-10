@@ -48,6 +48,32 @@
     @apply text-sm sm:text-base lg:text-lg;
   }
   
+  /* Mobile viewport fixes */
+  @media (max-width: 768px) {
+    html {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    
+    /* Ensure images are responsive */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Fix for mobile viewport issues */
+    .min-h-screen {
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+    }
+  }
+  
   .mobile-heading {
     @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }

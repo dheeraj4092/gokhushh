@@ -13,20 +13,42 @@ import StickyCallToAction from '@/components/common/StickyCallToAction'
 
 export default function Home() {
   return (
-    <SidebarNavigation>
-      <main className="min-h-screen">
-        <Hero />
-        <StoryCards />
-        <InteractiveSimulations />
-        <LiveDashboard />
-        <SafetySection />
-        <AdvertiserSection />
-        <AboutSection />
-        <AppDownload />
-        <ContactSection />
-      </main>
-      <Footer />
-      <StickyCallToAction />
-    </SidebarNavigation>
+    <>
+      {/* Mobile Layout */}
+      <div className="md:hidden">
+        <main className="min-h-screen bg-brand-black">
+          <Hero />
+          <StoryCards />
+          <InteractiveSimulations />
+          <LiveDashboard />
+          <SafetySection />
+          <AdvertiserSection />
+          <AboutSection />
+          <AppDownload />
+          <ContactSection />
+        </main>
+        <Footer />
+        <StickyCallToAction />
+      </div>
+      
+      {/* Desktop Layout */}
+      <div className="hidden md:block">
+        <SidebarNavigation>
+          <main className="min-h-screen">
+            <Hero />
+            <StoryCards />
+            <InteractiveSimulations />
+            <LiveDashboard />
+            <SafetySection />
+            <AdvertiserSection />
+            <AboutSection />
+            <AppDownload />
+            <ContactSection />
+          </main>
+          <Footer />
+          <StickyCallToAction />
+        </SidebarNavigation>
+      </div>
+    </>
   )
 }
