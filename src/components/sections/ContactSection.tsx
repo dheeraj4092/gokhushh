@@ -50,10 +50,11 @@ const ContactSection = () => {
     }
   ]
 
-  const onSubmit = async (_data: ContactForm) => {
+  const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true)
     
     // Simulate form submission
+    console.log('Form submitted with data:', data)
     await new Promise(resolve => setTimeout(resolve, 2000))
     
     setIsSubmitting(false)

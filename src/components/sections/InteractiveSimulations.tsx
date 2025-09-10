@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Smartphone, Car, Building2, Play } from 'lucide-react'
@@ -13,7 +14,13 @@ const InteractiveSimulations = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [activeSimulation, setActiveSimulation] = useState<'rider' | 'driver' | 'advertiser'>('rider')
 
-  const simulations = [
+  const simulations: Array<{
+    id: 'rider' | 'driver' | 'advertiser'
+    title: string
+    description: string
+    icon: React.ComponentType<{ className?: string }>
+    color: string
+  }> = [
     {
       id: 'rider',
       title: 'Rider Experience',
@@ -79,7 +86,7 @@ const InteractiveSimulations = () => {
                 return (
                   <motion.button
                     key={simulation.id}
-                    onClick={() => setActiveSimulation(simulation.id as string)}
+                    onClick={() => setActiveSimulation(simulation.id)}
                     className={`p-3 sm:p-4 rounded-lg sm:rounded-xl text-left transition-all duration-300 ${
                       isActive
                         ? (() => {
