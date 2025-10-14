@@ -60,19 +60,24 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+      const cardWidth = isMobile() ? 230 : 352; // Updated for new card size
+      const gap = isMobile() ? 4 : 8;
+      carouselRef.current.scrollBy({ left: -(cardWidth + gap), behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      const cardWidth = isMobile() ? 230 : 352; // Updated for new card size
+      const gap = isMobile() ? 4 : 8;
+      carouselRef.current.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
     }
   };
 
   const handleCardClose = useCallback((index: number) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 230 : 384; // (md:w-96)
+      // Updated for larger GlowCard size: 22rem = 352px
+      const cardWidth = isMobile() ? 230 : 352; // Updated for new card size
       const gap = isMobile() ? 4 : 8;
       const scrollPosition = (cardWidth + gap) * (index + 1);
       carouselRef.current.scrollTo({

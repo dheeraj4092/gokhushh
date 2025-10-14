@@ -1,49 +1,73 @@
 export const content = {
   hero: {
-    tagline: "Rides. Powered by Ads. Fair for Everyone.",
-    description: "Experience the future of transportation where ads make rides affordable and drivers keep 100% of their earnings. Now available across major Indian cities.",
-    cta: "Discover How"
+    tagline: "India's First Zero-Commission Ride Platform",
+    subtitle: "Powered by Revolutionary AdTech",
+    description: "Riders save money. Drivers earn 100% of fares. Businesses reach customers at the perfect moment. Welcome to the future of mobility.",
+    cta: "See How It Works",
+    secondary_cta: "Join the Revolution",
+    pilot_badge: "✅ Pilot Successfully Completed in Hyderabad"
   },
   
   storyCards: [
     {
       id: 1,
-      headline: "Why do rides cost so much... and drivers earn so little?",
-      subtext: "Traditional platforms take 20-30%. There's a better way.",
-      visual: "split-screen"
+      headline: "Why do ride-hailing platforms take 20-30% commission?",
+      subtext: "Drivers work hard but keep only 70% of earnings. There's a better way.",
+      visual: "commission-split-comparison",
+      data: "Traditional platforms: Driver gets ₹70, Platform takes ₹30"
     },
     {
       id: 2,
-      headline: "What if ads could make rides affordable for everyone?",
-      subtext: "30 seconds of your attention = significant savings + fair driver pay.",
-      visual: "sequence-animation"
+      headline: "What if ads could fund the entire platform?",
+      subtext: "30 seconds of relevant ads = zero platform fees + ride discounts for users.",
+      visual: "ad-funding-model",
+      data: "Gokhush: Driver gets ₹100, Rider saves ₹20, Platform funded by ads"
     },
     {
       id: 3,
       headline: "The magic happens during your ride",
-      subtext: "Earn credits for future rides while discovering local businesses.",
-      visual: "location-triggered"
+      subtext: "Location-triggered ads show nearby businesses as you travel, earning credits for your next ride.",
+      visual: "location-based-ads",
+      data: "Avg 3-5 relevant ads per ride = ₹15-25 credits earned"
     },
     {
       id: 4,
-      headline: "Who Wins?",
-      subtext: "Everyone. Riders save money, drivers earn more, businesses reach customers.",
-      visual: "three-stakeholder"
+      headline: "Everyone wins. Really.",
+      subtext: "Riders save money, drivers earn more, local businesses get customers. It's not theory - we proved it.",
+      visual: "triple-win-diagram",
+      data: "Pilot Results: Riders saved 25%, Drivers earned 40% more"
     },
     {
       id: 5,
-      headline: "Why Now?",
-      subtext: "Built by ad tech experts who understand what businesses need.",
-      visual: "comparison-chart"
+      headline: "Why now? Why us?",
+      subtext: "Built by adtech experts who understand both mobility and advertising. Our pilot proved the model works.",
+      visual: "team-expertise",
+      data: "✅ Functional platform ✅ Pilot completed ✅ Ready to scale"
     }
   ],
   
   metrics: {
-    rides: 15420,
-    drivers: 1250,
-    savings: 6700000, // ₹67 lakhs
-    businesses: 156,
-    engagement: 87
+    // Pilot Program Results from Hyderabad
+    pilotRides: 2400,
+    activDrivers: 180,
+    businessPartners: 45,
+    riderSavings: 580000, // ₹5.8 lakhs total saved by riders
+    driverEarnings: 920000, // ₹9.2 lakhs additional vs traditional
+    adEngagement: 94, // % ad engagement rate
+    avgCreditsPerRide: 22, // ₹22 average credits earned per ride
+    avgSavingsPercent: 25, // 25% average savings for riders
+    driverEarningsIncrease: 40, // 40% more earnings vs traditional platforms
+    
+    // City Coverage (Hyderabad)
+    hyderabadZones: 12,
+    activeHours: "6 AM - 11 PM",
+    avgWaitTime: 3.2, // minutes
+    customerSatisfaction: 4.7,
+    
+    // Business Metrics
+    businessROI: 340, // % average ROI for advertisers
+    footTrafficIncrease: 28, // % average increase
+    campaignCompletionRate: 96 // % ads successfully served
   },
   
   features: {
@@ -91,11 +115,19 @@ export const content = {
 
 export const navigation = [
   { name: "How It Works", href: "#how-it-works" },
-  { name: "For Riders", href: "#riders" },
-  { name: "For Drivers", href: "#drivers" },
-  { name: "For Businesses", href: "#businesses" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" }
+  { 
+    name: "Platform", 
+    href: "#platform",
+    submenu: [
+      { name: "For Riders", href: "#riders" },
+      { name: "For Drivers", href: "#drivers" },  
+      { name: "For Businesses", href: "#businesses" }
+    ]
+  },
+  { name: "Pilot Results", href: "#pilot-results" },
+  { name: "Technology", href: "#technology" },
+  { name: "About Team", href: "#about" },
+  { name: "Join Us", href: "#contact" }
 ];
 
 export const socialLinks = [

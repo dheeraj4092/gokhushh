@@ -20,10 +20,10 @@ const StoryCards = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
             The Story Behind{' '}
-            <span className="block text-brand-green">RideHail</span>
+            <span className="block text-gokhush-green">Gokhush</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-            Discover how we&apos;re revolutionizing transportation by making it fair for everyone
+            How we built India&apos;s first zero-commission ride platform powered by revolutionary AdTech
           </p>
         </motion.div>
 

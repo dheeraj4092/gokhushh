@@ -7,48 +7,32 @@ import AdvertiserSection from '@/components/sections/AdvertiserSection'
 import AboutSection from '@/components/sections/AboutSection'
 import AppDownload from '@/components/sections/AppDownload'
 import ContactSection from '@/components/sections/ContactSection'
-import SidebarNavigation from '@/components/common/SidebarNavigation'
+import GradientNavigation from '@/components/common/GradientNavigation'
 import Footer from '@/components/common/Footer'
 import StickyCallToAction from '@/components/common/StickyCallToAction'
 
 export default function Home() {
   return (
     <>
-      {/* Mobile Layout */}
-      <div className="md:hidden">
-        <main className="min-h-screen bg-brand-black">
-          <Hero />
-          <StoryCards />
-          <InteractiveSimulations />
-          <LiveDashboard />
-          <SafetySection />
-          <AdvertiserSection />
-          <AboutSection />
-          <AppDownload />
-          <ContactSection />
-        </main>
-        <Footer />
-        <StickyCallToAction />
-      </div>
+      {/* Main Layout with Dock Navigation */}
+      <main className="min-h-screen bg-brand-black">
+        <Hero />
+        <StoryCards />
+        <InteractiveSimulations />
+        <LiveDashboard />
+        <SafetySection />
+        <AdvertiserSection />
+        <AboutSection />
+        <AppDownload />
+        <ContactSection />
+      </main>
       
-      {/* Desktop Layout */}
-      <div className="hidden md:block">
-        <SidebarNavigation>
-          <main className="min-h-screen">
-            <Hero />
-            <StoryCards />
-            <InteractiveSimulations />
-            <LiveDashboard />
-            <SafetySection />
-            <AdvertiserSection />
-            <AboutSection />
-            <AppDownload />
-            <ContactSection />
-          </main>
-          <Footer />
-          <StickyCallToAction />
-        </SidebarNavigation>
-      </div>
+      {/* Gradient Navigation - appears on scroll */}
+      <GradientNavigation />
+      
+      {/* Footer and CTA */}
+      <Footer />
+      <StickyCallToAction />
     </>
   )
 }

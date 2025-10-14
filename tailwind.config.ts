@@ -9,11 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary brand colors - Black and Green theme
+        // Primary Gokhush brand colors - Black and Green theme
+        'gokhush-black': '#000000',
+        'gokhush-dark': '#111111',
+        'gokhush-gray': '#1a1a1a',
+        'gokhush-green': '#00ff88', // Signature Gokhush green
+        'gokhush-green-dark': '#00cc6a',
+        'gokhush-green-light': '#33ff99',
+        'gokhush-green-muted': '#00ff8810',
+        'gokhush-green-muted-dark': '#00ff8820',
+        
+        // Legacy brand colors (maintain compatibility)
         'brand-black': '#000000',
         'brand-dark': '#111111',
         'brand-gray': '#1a1a1a',
-        'brand-green': '#00ff88', // Bright green for logo
+        'brand-green': '#00ff88',
         'brand-green-dark': '#00cc6a',
         'brand-green-light': '#33ff99',
         'brand-green-muted': '#00ff8810',
@@ -67,6 +77,15 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        
+        // Gokhush signature gradients
+        'gokhush-hero': 'linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #00ff88 100%)',
+        'gokhush-primary': 'linear-gradient(135deg, #00ff88 0%, #00cc6a 100%)',
+        'gokhush-dark': 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+        'gokhush-accent': 'linear-gradient(135deg, #00ff88 0%, #33ff99 100%)',
+        'gokhush-cta': 'linear-gradient(135deg, #00ff88 0%, #33ff99 100%)',
+        
+        // Legacy gradients (maintain compatibility)
         'hero-gradient': 'linear-gradient(135deg, #000000 0%, #111111 50%, #00ff88 100%)',
         'green-gradient': 'linear-gradient(135deg, #00ff88 0%, #00cc6a 100%)',
         'dark-gradient': 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',

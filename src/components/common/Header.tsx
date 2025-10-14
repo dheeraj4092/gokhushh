@@ -42,13 +42,13 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.div
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center">
-              <span className="text-brand-black font-bold text-lg">R</span>
+            <div className="w-10 h-10 bg-gokhush-green rounded-xl flex items-center justify-center">
+              <span className="text-gokhush-black font-bold text-lg">G</span>
             </div>
-            <span className="text-xl font-bold text-white">RideHail</span>
+            <span className="text-xl font-bold text-white">Gokhush</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -57,7 +57,7 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href.replace('#', ''))}
-                className="text-gray-300 hover:text-brand-green transition-colors font-medium"
+                className="text-gray-300 hover:text-gokhush-green transition-colors font-medium"
               >
                 {item.name}
               </button>
