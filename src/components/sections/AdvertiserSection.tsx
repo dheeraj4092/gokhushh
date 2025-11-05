@@ -234,7 +234,7 @@ const AdvertiserSection = () => {
                     <motion.div
                       className="w-20 h-20 bg-brand-blue/20 rounded-full border-2 border-brand-blue flex items-center justify-center"
                       animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
+                      transition={{ duration: 2, repeat: Infinity, type: 'tween', ease: 'easeInOut' }}
                     >
                       <MapPin className="w-8 h-8 text-brand-blue" />
                     </motion.div>

@@ -122,15 +122,39 @@ const GradientNavigation = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Show/hide navigation based on scroll position
+  // Show navigation when scrolling, hide when stopped
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout
+
     const handleScroll = () => {
       const scrollY = window.scrollY
-      setIsVisible(scrollY > 200)
+      
+      // Only show navbar when past 200px
+      if (scrollY > 200) {
+        setIsVisible(true)
+        
+        // Clear existing timeout
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout)
+        }
+        
+        // Hide navbar 2 seconds after scrolling stops
+        scrollTimeout = setTimeout(() => {
+          setIsVisible(false)
+        }, 2000)
+      } else {
+        setIsVisible(false)
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout)
+      }
+    }
   }, [])
 
   return (

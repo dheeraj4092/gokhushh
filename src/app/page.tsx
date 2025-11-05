@@ -1,5 +1,5 @@
-import Hero from '@/components/sections/Hero'
-import StoryCards from '@/components/sections/StoryCards'
+import HeroWithStory from '@/components/sections/HeroWithStory'
+import PhoneTransition from '@/components/sections/PhoneTransition'
 import InteractiveSimulations from '@/components/sections/InteractiveSimulations'
 import LiveDashboard from '@/components/sections/LiveDashboard'
 import SafetySection from '@/components/sections/SafetySection'
@@ -16,8 +16,8 @@ export default function Home() {
     <>
       {/* Main Layout with Dock Navigation */}
       <main className="min-h-screen bg-brand-black">
-        <Hero />
-        <StoryCards />
+        <HeroWithStory />
+        <PhoneTransition />
         <InteractiveSimulations />
         <LiveDashboard />
         <SafetySection />

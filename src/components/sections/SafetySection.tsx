@@ -125,7 +125,7 @@ const SafetySection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 animate={emergencyActive ? { scale: [1, 1.1, 1] } : {}}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, type: 'tween', ease: 'easeInOut' }}
               >
                 <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8" />
               </motion.button>
