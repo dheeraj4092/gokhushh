@@ -33,24 +33,24 @@ const GradientNavigation = () => {
       icon: <Car className="w-6 h-6" />, 
       gradientFrom: '#a955ff', 
       gradientTo: '#ea51ff',
-      sectionId: 'story-cards',
-      onClick: () => scrollToSection('story-cards')
+      sectionId: 'hero',
+      onClick: () => scrollToSection('hero')
     },
     { 
       title: 'Simulations', 
       icon: <Users className="w-6 h-6" />, 
       gradientFrom: '#56CCF2', 
       gradientTo: '#2F80ED',
-      sectionId: 'interactive-demo',
-      onClick: () => scrollToSection('interactive-demo')
+      sectionId: 'interactive-simulations',
+      onClick: () => scrollToSection('interactive-simulations')
     },
     { 
       title: 'Dashboard', 
       icon: <BarChart3 className="w-6 h-6" />, 
       gradientFrom: '#FF9966', 
       gradientTo: '#FF5E62',
-      sectionId: 'live-dashboard',
-      onClick: () => scrollToSection('live-dashboard')
+      sectionId: 'testimonial-section',
+      onClick: () => scrollToSection('testimonial-section')
     },
     { 
       title: 'Safety', 
@@ -104,7 +104,7 @@ const GradientNavigation = () => {
   // Track scroll position to update active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'story-cards', 'interactive-demo', 'live-dashboard', 'safety', 'advertisers', 'about', 'download', 'contact']
+      const sections = ['hero', 'interactive-simulations', 'testimonial-section', 'safety', 'advertisers', 'about', 'download', 'contact']
       
       for (let i = sections.length - 1; i >= 0; i--) {
         const element = document.getElementById(sections[i])
@@ -165,18 +165,52 @@ const GradientNavigation = () => {
         opacity: isVisible ? 1 : 0 
       }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50"
+      className="fixed bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 z-50 px-2 md:px-0 max-w-[calc(100vw-1rem)]"
     >
       <div className="flex justify-center items-center">
-        <ul className="flex gap-4 bg-gokhush-dark/90 backdrop-blur-md rounded-full p-2 border border-gokhush-green/20 shadow-2xl">
-          {menuItems.map(({ title, icon, gradientFrom, gradientTo, sectionId, onClick }, idx) => (
+        {/* Mobile: Show only first 5 items, Desktop: Show all */}
+        <ul className="flex gap-2 md:gap-4 bg-gokhush-dark/90 backdrop-blur-md rounded-full p-1.5 md:p-2 border border-gokhush-green/20 shadow-2xl overflow-x-auto scrollbar-hide">
+          {menuItems.slice(0, 5).map(({ title, icon, gradientFrom, gradientTo, sectionId, onClick }, idx) => (
             <motion.li
               key={idx}
               style={{ 
                 '--gradient-from': gradientFrom, 
                 '--gradient-to': gradientTo 
               } as React.CSSProperties}
-              className={`relative w-[50px] h-[50px] bg-white/10 shadow-lg rounded-full flex items-center justify-center transition-all duration-500 hover:w-[160px] hover:shadow-none group cursor-pointer ${
+              className={`relative w-[44px] h-[44px] md:w-[50px] md:h-[50px] bg-white/10 shadow-lg rounded-full flex items-center justify-center transition-all duration-500 md:hover:w-[160px] md:hover:shadow-none group cursor-pointer shrink-0 ${
+                activeSection === sectionId ? 'ring-2 ring-gokhush-green' : ''
+              }`}
+              onClick={onClick}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {/* Gradient background on hover */}
+              <span className="absolute inset-0 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] opacity-0 transition-all duration-500 md:group-hover:opacity-100"></span>
+              {/* Blur glow */}
+              <span className="absolute top-[5px] inset-x-0 h-full rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] blur-[10px] opacity-0 -z-10 transition-all duration-500 md:group-hover:opacity-50"></span>
+
+              {/* Icon */}
+              <span className="relative z-10 transition-all duration-500 md:group-hover:scale-0 delay-0">
+                <span className={`text-lg md:text-xl ${activeSection === sectionId ? 'text-gokhush-green' : 'text-gray-400'}`}>
+                  {icon}
+                </span>
+              </span>
+
+              {/* Title - Only visible on desktop hover */}
+              <span className="hidden md:block absolute text-white uppercase tracking-wide text-xs font-medium transition-all duration-500 scale-0 group-hover:scale-100 delay-150">
+                {title}
+              </span>
+            </motion.li>
+          ))}
+          {/* Desktop: Show remaining items */}
+          {menuItems.slice(5).map(({ title, icon, gradientFrom, gradientTo, sectionId, onClick }, idx) => (
+            <motion.li
+              key={idx + 5}
+              style={{ 
+                '--gradient-from': gradientFrom, 
+                '--gradient-to': gradientTo 
+              } as React.CSSProperties}
+              className={`hidden md:flex relative w-[50px] h-[50px] bg-white/10 shadow-lg rounded-full items-center justify-center transition-all duration-500 hover:w-[160px] hover:shadow-none group cursor-pointer ${
                 activeSection === sectionId ? 'ring-2 ring-gokhush-green' : ''
               }`}
               onClick={onClick}

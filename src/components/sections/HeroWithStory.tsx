@@ -625,14 +625,14 @@ const HeroWithStory = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/90 backdrop-blur-sm h-full w-full z-[100]"
             />
-            <div className="fixed inset-0 grid place-items-center z-[101] overflow-y-auto py-8">
+            <div className="fixed inset-0 grid place-items-center z-[101] overflow-y-auto py-4 md:py-8 px-2 md:px-4">
               <motion.button
                 key={`button-${active.title}-${id}`}
                 layout
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-4 right-4 items-center justify-center bg-white rounded-full h-8 w-8 z-[102]"
+                className="flex absolute top-2 right-2 md:top-4 md:right-4 items-center justify-center bg-white rounded-full h-8 w-8 md:h-10 md:w-10 z-[102] shadow-lg"
                 onClick={() => setActive(null)}
               >
                 <CloseIcon />
@@ -640,10 +640,10 @@ const HeroWithStory = () => {
               <motion.div
                 layoutId={`card-${active.title}-${id}`}
                 ref={modalRef}
-                className="w-full max-w-4xl h-fit flex flex-col bg-gokhush-dark rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-gokhush-green/20 mx-4"
+                className="w-full max-w-4xl h-fit flex flex-col bg-gokhush-dark rounded-xl md:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border border-gokhush-green/20 my-auto"
               >
                 {/* Header with Image */}
-                <div className="relative h-64 md:h-80">
+                <div className="relative h-48 sm:h-56 md:h-80">
                   <Image
                     src={active.thumbnail}
                     alt={active.title}
@@ -651,22 +651,22 @@ const HeroWithStory = () => {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gokhush-dark via-gokhush-dark/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-8">
                     <motion.div
                       layoutId={`category-${active.title}-${id}`}
-                      className="text-gokhush-green text-sm font-medium mb-2"
+                      className="text-gokhush-green text-xs sm:text-sm font-medium mb-1 md:mb-2"
                     >
                       {active.category}
                     </motion.div>
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className="text-2xl md:text-4xl font-bold text-white mb-2"
+                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 md:mb-2"
                     >
                       {active.title}
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
-                      className="text-gray-300 text-base md:text-lg"
+                      className="text-gray-300 text-sm sm:text-base md:text-lg"
                     >
                       {active.description}
                     </motion.p>
@@ -674,7 +674,7 @@ const HeroWithStory = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 p-6 md:p-8">
+                <div className="flex-1 p-4 sm:p-5 md:p-8 max-h-[50vh] md:max-h-[60vh] overflow-y-auto">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -692,15 +692,16 @@ const HeroWithStory = () => {
 
       {/* Hero Parallax Section */}
       <section 
+        id="hero"
         ref={ref}
-        className="h-[300vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#030303]"
+        className="md:h-[300vh] h-auto overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#030303]"
       >
         {/* Simplified Hero Header - Centered */}
-        <div className="min-h-screen flex items-center justify-center relative z-10 px-4">
-          <div className="text-center">
+        <div className="min-h-screen flex items-center justify-center relative z-10 px-4 sm:px-6 py-20 md:py-0">
+          <div className="text-center max-w-4xl mx-auto">
             {/* Main Headline */}
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-white mb-16"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight text-white mb-8 md:mb-16"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -713,9 +714,9 @@ const HeroWithStory = () => {
               Ride Platform
             </motion.h1>
 
-            {/* Scroll Indicator */}
+            {/* Scroll Indicator - Hidden on mobile */}
             <motion.div
-              className="flex flex-col items-center text-gray-400"
+              className="hidden md:flex flex-col items-center text-gray-400"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -729,10 +730,43 @@ const HeroWithStory = () => {
                 <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8" />
               </motion.div>
             </motion.div>
+
+            {/* Mobile: Show card grid instead of parallax */}
+            <motion.div
+              className="md:hidden mt-8 grid grid-cols-1 gap-4 max-w-md mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              {cardData.slice(0, 6).map((product, idx) => (
+                <motion.div
+                  key={product.title}
+                  onClick={() => setActive(product)}
+                  className="relative h-40 rounded-xl overflow-hidden cursor-pointer group"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 + idx * 0.1 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Image
+                    src={product.thumbnail}
+                    height="400"
+                    width="400"
+                    className="object-cover object-center absolute h-full w-full inset-0"
+                    alt={product.title}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-4">
+                    <div className="text-gokhush-green text-xs font-medium mb-1">{product.category}</div>
+                    <h3 className="text-white text-base font-semibold">{product.title}</h3>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
 
-        {/* Parallax Product Cards - Clickable */}
+        {/* Parallax Product Cards - Desktop Only */}
         <motion.div
           style={{
             rotateX,
@@ -740,7 +774,7 @@ const HeroWithStory = () => {
             translateY,
             opacity,
           }}
-          className="relative"
+          className="relative hidden md:block"
         >
           <motion.div className="flex flex-row-reverse space-x-reverse space-x-12 mb-16">
             {firstRow.map((product) => (

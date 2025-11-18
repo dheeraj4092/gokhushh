@@ -58,7 +58,7 @@ const InteractiveSimulations = () => {
   }
 
   return (
-    <section id="interactive-simulations" className="py-8 sm:py-12 bg-brand-black relative overflow-hidden">
+    <section id="interactive-simulations" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-brand-black relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-brand-green/5 rounded-full blur-3xl" />
@@ -68,37 +68,37 @@ const InteractiveSimulations = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-brand-green/10 border border-brand-green/20 mb-4 sm:mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Sparkles className="w-4 h-4 text-brand-green" />
-            <span className="text-sm font-medium text-brand-green">Interactive Demo</span>
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-brand-green" />
+            <span className="text-xs sm:text-sm font-medium text-brand-green">Interactive Demo</span>
           </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6 px-2">
             Experience It{' '}
             <span className="bg-gradient-to-r from-brand-green to-brand-green-light bg-clip-text text-transparent">
               Yourself
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-2">
             Interactive simulations showing how our platform works for riders, drivers, and advertisers
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr,auto] gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr,auto] gap-6 sm:gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           {/* Simulation Tabs */}
-          <div className="space-y-6 lg:space-y-8">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8">
             {/* Tabs with enhanced design */}
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4">
               {simulations.map((simulation, index) => {
                 const Icon = simulation.icon
                 const isActive = activeSimulation === simulation.id
@@ -107,7 +107,7 @@ const InteractiveSimulations = () => {
                   <motion.button
                     key={simulation.id}
                     onClick={() => setActiveSimulation(simulation.id)}
-                    className={`relative p-5 rounded-2xl text-left transition-all duration-300 overflow-hidden ${
+                    className={`relative p-4 sm:p-5 rounded-xl sm:rounded-2xl text-left transition-all duration-300 overflow-hidden ${
                       isActive
                         ? 'bg-gradient-to-br from-brand-green to-brand-green-dark text-brand-black shadow-[0_10px_40px_rgba(0,255,136,0.3)] ring-2 ring-brand-green/50'
                         : 'bg-brand-gray/50 text-gray-300 hover:bg-brand-gray hover:shadow-lg backdrop-blur-sm border border-gray-800'
@@ -131,24 +131,24 @@ const InteractiveSimulations = () => {
                       />
                     )}
 
-                    <div className="relative z-10 flex items-start gap-4">
-                      <div className={`p-3 rounded-xl ${
+                    <div className="relative z-10 flex items-start gap-3 sm:gap-4">
+                      <div className={`p-2 sm:p-3 rounded-lg sm:rounded-xl shrink-0 ${
                         isActive 
                           ? 'bg-brand-black/20' 
                           : 'bg-brand-green/10'
                       }`}>
-                        <Icon className={`w-6 h-6 ${
+                        <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${
                           isActive ? 'text-brand-black' : 'text-brand-green'
                         }`} />
                       </div>
                       
-                      <div className="flex-1">
-                        <h3 className={`font-bold text-base mb-1 ${
+                      <div className="flex-1 min-w-0">
+                        <h3 className={`font-bold text-sm sm:text-base mb-0.5 sm:mb-1 ${
                           isActive ? 'text-brand-black' : 'text-white'
                         }`}>
                           {simulation.title}
                         </h3>
-                        <p className={`text-sm ${
+                        <p className={`text-xs sm:text-sm line-clamp-2 ${
                           isActive ? 'text-brand-black/70' : 'text-gray-400'
                         }`}>
                           {simulation.description}
@@ -158,7 +158,7 @@ const InteractiveSimulations = () => {
                       {/* Active indicator */}
                       {isActive && (
                         <motion.div
-                          className="absolute right-5 top-1/2 -translate-y-1/2"
+                          className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 shrink-0"
                           initial={{ scale: 0, rotate: -180 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: "spring", stiffness: 200, damping: 15 }}
@@ -175,13 +175,13 @@ const InteractiveSimulations = () => {
             {/* Enhanced Features Card */}
             <motion.div
               key={`features-${activeSimulation}`}
-              className="bg-gradient-to-br from-brand-gray to-brand-dark rounded-2xl p-6 border border-brand-green/20"
+              className="bg-gradient-to-br from-brand-gray to-brand-dark rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-brand-green/20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-brand-green" />
+              <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-green" />
                 Key Features
               </h3>
               
@@ -252,9 +252,9 @@ const InteractiveSimulations = () => {
               )}
             </motion.div>
 
-            {/* Enhanced CTA */}
+            {/* Enhanced CTA - Hidden on mobile, shown on desktop */}
             <motion.div
-              className="text-center"
+              className="text-center hidden lg:block"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}
@@ -267,7 +267,7 @@ const InteractiveSimulations = () => {
           </div>
 
           {/* Phone Simulator - Enhanced */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
             <motion.div
               key={activeSimulation}
               initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
@@ -275,6 +275,7 @@ const InteractiveSimulations = () => {
               exit={{ opacity: 0, scale: 0.9, rotateY: 15 }}
               transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
               style={{ transformStyle: 'preserve-3d' }}
+              className="w-full max-w-sm lg:max-w-none"
             >
               <PhoneSimulator allowFullscreen={true}>
                 {renderSimulation()}
@@ -285,12 +286,12 @@ const InteractiveSimulations = () => {
 
         {/* Enhanced Bottom CTA */}
         <motion.div
-          className="text-center mt-20"
+          className="text-center mt-12 sm:mt-16 md:mt-20"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <div className="relative bg-gradient-to-br from-brand-blue via-blue-600 to-brand-green rounded-3xl p-8 md:p-12 text-white overflow-hidden shadow-[0_20px_60px_rgba(0,102,255,0.3)]">
+          <div className="relative bg-gradient-to-br from-brand-blue via-blue-600 to-brand-green rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-white overflow-hidden shadow-[0_20px_60px_rgba(0,102,255,0.3)]">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-green/20 rounded-full blur-3xl" />
@@ -301,29 +302,29 @@ const InteractiveSimulations = () => {
                 animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.9, opacity: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                   Ready to Get Started?
                 </h3>
-                <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto px-2">
                   Join our platform and experience the future of transportation with zero commissions
                 </p>
               </motion.div>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto"
                 initial={{ y: 20, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
                 <motion.button
-                  className="px-8 py-4 bg-white text-brand-blue rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-brand-blue rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Download App
                 </motion.button>
                 <motion.button
-                  className="px-8 py-4 border-2 border-white text-white rounded-xl font-bold hover:bg-white hover:text-brand-blue transition-all"
+                  className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-xl font-bold hover:bg-white hover:text-brand-blue transition-all text-sm sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

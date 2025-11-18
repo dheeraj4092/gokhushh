@@ -37,46 +37,48 @@ const StickyCallToAction = () => {
 
   return (
     <motion.div
-      className="fixed bottom-4 right-4 z-50"
+      className="fixed bottom-20 md:bottom-4 right-2 md:right-4 z-40"
       style={{ y, opacity }}
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 100 }}
     >
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-gray-200 p-3 sm:p-4 max-w-xs sm:max-w-sm">
+      <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-2xl border border-gray-200 p-3 sm:p-4 max-w-[280px] sm:max-w-xs md:max-w-sm">
         {/* Dismiss Button */}
         <button
           onClick={() => setIsDismissed(true)}
-          className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors"
+          className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors z-10"
         >
           <X className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-600" />
         </button>
 
         {/* Content */}
-        <div className="pr-4 sm:pr-6">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">
+        <div className="pr-3 sm:pr-4 md:pr-6">
+          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">
             Ready to get started?
           </h3>
-          <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 md:mb-4">
             Download our app and start saving on rides today.
           </p>
           
-          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <Button
               size="sm"
               onClick={scrollToDownload}
-              className="flex-1 text-xs sm:text-sm"
+              className="flex-1 text-xs sm:text-sm h-9 sm:h-10"
             >
               <Download className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-              Download
+              <span className="hidden sm:inline">Download</span>
+              <span className="sm:hidden">Get App</span>
             </Button>
             <Button
               size="sm"
               variant="outline"
               onClick={scrollToTop}
-              className="text-xs sm:text-sm"
+              className="text-xs sm:text-sm h-9 sm:h-10 w-full sm:w-auto"
             >
-              <ArrowUp className="w-3 h-3 sm:w-4 sm:h-4" />
+              <ArrowUp className="w-3 h-3 sm:w-4 sm:h-4 sm:mr-0" />
+              <span className="ml-1 sm:hidden">Back to Top</span>
             </Button>
           </div>
         </div>
