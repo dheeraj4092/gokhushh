@@ -4,9 +4,6 @@ const nextConfig: NextConfig = {
   // Production optimizations
   reactStrictMode: true,
   
-  // Enable SWC minification (faster than Terser)
-  swcMinify: true,
-  
   // Compiler optimizations
   compiler: {
     // Remove console logs in production
@@ -91,13 +88,14 @@ const nextConfig: NextConfig = {
       'recharts',
       '@radix-ui/react-slot',
     ],
-    // Enable faster refresh
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
+  },
+  
+  // Turbopack configuration (moved from experimental)
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
     },
   },
