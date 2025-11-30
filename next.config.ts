@@ -12,9 +12,6 @@ const nextConfig: NextConfig = {
     } : false,
   },
   
-  // Output standalone for faster builds
-  output: process.env.NODE_ENV === "production" ? "standalone" : undefined,
-  
   // Disable source maps in production for faster builds
   productionBrowserSourceMaps: false,
   
@@ -29,12 +26,6 @@ const nextConfig: NextConfig = {
         },
       };
     }
-    
-    // Exclude node_modules from unnecessary processing
-    config.resolve.symlinks = false;
-    
-    // Optimize module resolution
-    config.resolve.modules = ['node_modules'];
     
     return config;
   },
