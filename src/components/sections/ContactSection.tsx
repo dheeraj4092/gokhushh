@@ -71,7 +71,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      value: 'hello@ridehail.in',
+      value: 'hello@gokhush.in',
       description: 'We\'ll respond within 24 hours'
     },
     {

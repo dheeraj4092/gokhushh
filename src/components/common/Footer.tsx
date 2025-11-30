@@ -53,8 +53,8 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: Mail,
-      text: 'hello@ridehail.in',
-      href: 'mailto:hello@ridehail.in'
+      text: 'hello@gokhush.in',
+      href: 'mailto:hello@gokhush.in'
     },
     {
       icon: Phone,
@@ -63,7 +63,7 @@ const Footer = () => {
     },
     {
       icon: MapPin,
-      text: 'Bangalore, Karnataka',
+      text: 'Hyderabad, Telangana',
       href: '#'
     }
   ]
@@ -89,10 +89,12 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-blue rounded-lg sm:rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-base sm:text-lg">R</span>
-                </div>
-                <span className="text-lg sm:text-xl font-bold">RideHail</span>
+                <img 
+                  src="/logo.png" 
+                  alt="Go Khush Logo" 
+                  className="h-8 sm:h-10 w-auto"
+                />
+                <span className="text-lg sm:text-xl font-bold">Gokhush</span>
               </div>
               <p className="text-gray-400 mb-6 text-sm sm:text-base">
                 Revolutionizing transportation with ad-supported rides that benefit everyone.

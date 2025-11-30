@@ -277,7 +277,7 @@ const InteractiveSimulations = () => {
               style={{ transformStyle: 'preserve-3d' }}
               className="w-full max-w-sm lg:max-w-none"
             >
-              <PhoneSimulator allowFullscreen={true}>
+              <PhoneSimulator allowFullscreen={false}>
                 {renderSimulation()}
               </PhoneSimulator>
             </motion.div>

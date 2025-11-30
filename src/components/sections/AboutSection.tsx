@@ -77,6 +77,14 @@ const AboutSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
+          {/* Logo */}
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/logo.png" 
+              alt="Go Khush Logo" 
+              className="h-16 sm:h-20 w-auto"
+            />
+          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             About Our Mission
           </h2>

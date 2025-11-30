@@ -67,6 +67,9 @@ ContainerStagger.displayName = "ContainerStagger"
 
 interface ContainerAnimatedProps extends HTMLMotionProps<"div"> {
   animation?: AnimateT
+  children?: React.ReactNode
+  className?: string
+  transition?: any
 }
 interface ContainerScrollValue {
   scrollYProgress: MotionValue<number>
@@ -114,12 +117,12 @@ ContainerScroll.displayName = "ContainerScroll"
 const ContainerAnimated = React.forwardRef<
   HTMLDivElement,
   ContainerAnimatedProps
->(({ animation, children, className, ...props }, ref) => {
+>(({ animation, children, className, transition, ...props }, ref) => {
   const variants = useAnimationVariants(animation)
 
   return (
     <motion.div
-      transition={SPRING_CONFIG || props.transition}
+      transition={transition || SPRING_CONFIG}
       ref={ref}
       variants={variants}
       className={className}
@@ -136,6 +139,10 @@ interface ContainerInsetProps extends HTMLMotionProps<"div"> {
   insetYRange?: [number, number]
   insetXRange?: [number, number]
   roundednessRange?: [number, number]
+  children?: React.ReactNode
+  className?: string
+  style?: React.CSSProperties
+  transition?: any
 }
 const ContainerInset = React.forwardRef<HTMLDivElement, ContainerInsetProps>(
   (
@@ -146,6 +153,8 @@ const ContainerInset = React.forwardRef<HTMLDivElement, ContainerInsetProps>(
       roundednessRange = [1000, 16],
       children,
       className,
+      style: customStyle,
+      transition,
       ...props
     },
     ref
@@ -160,12 +169,12 @@ const ContainerInset = React.forwardRef<HTMLDivElement, ContainerInsetProps>(
     const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`
 
     const style = React.useMemo(
-      () => ({ y, clipPath, ...props.style }),
-      [y, clipPath, props.style]
+      () => ({ y, clipPath, ...customStyle }),
+      [y, clipPath, customStyle]
     )
     return (
       <motion.div
-        transition={SPRING_CONFIG || props.transition}
+        transition={transition || SPRING_CONFIG}
         ref={ref}
         className={cn("origin-top overflow-hidden", className)}
         style={style}

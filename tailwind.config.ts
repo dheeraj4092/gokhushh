@@ -6,6 +6,17 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // Performance optimizations
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  // Only generate utilities that are actually used
+  safelist: [],
+  // Optimize CSS output
+  corePlugins: {
+    // Disable unused core plugins for smaller CSS
+    preflight: true,
+  },
   theme: {
     extend: {
       colors: {

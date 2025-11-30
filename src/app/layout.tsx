@@ -1,23 +1,28 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// Removed next/font/google (Inter) to avoid build-time network fetch causing ETIMEDOUT.
+// Using system font stack via global CSS instead. Add local font files later if needed.
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
-  title: 'Revolutionary Ride-Hailing Platform | Ad-Supported Transportation in India',
-  description: 'Experience affordable rides with zero driver commissions across Indian cities. Watch short ads, save money, and support fair earnings for drivers.',
-  keywords: 'ride sharing India, transportation, advertising, fair earnings, affordable rides, Mumbai, Delhi, Bangalore, Chennai, Hyderabad',
+  title: 'Gokhush - Zero Commission Rides | Ad-Supported Transportation in India',
+  description: 'Experience affordable rides with zero driver commissions. Watch short ads, save money, and support fair earnings for drivers. Live in Hyderabad.',
+  keywords: 'gokhush, ride sharing India, zero commission, transportation, advertising, fair earnings, affordable rides, Hyderabad',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
-    title: 'Revolutionary Ride-Hailing Platform',
+    title: 'Gokhush - Zero Commission Rides',
     description: 'Ad-supported rides that benefit everyone',
     type: 'website',
-    siteName: 'RideHail Platform',
+    siteName: 'Gokhush',
+    images: ['/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Revolutionary Ride-Hailing Platform',
+    title: 'Gokhush - Zero Commission Rides',
     description: 'Ad-supported rides that benefit everyone',
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
@@ -32,7 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased`}>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#00FF88" />
+      </head>
+      <body className="font-sans antialiased">
         {children}
       </body>
     </html>

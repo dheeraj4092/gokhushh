@@ -1,5 +1,4 @@
 import HeroWithStory from '@/components/sections/HeroWithStory'
-import PhoneTransition from '@/components/sections/PhoneTransition'
 import InteractiveSimulations from '@/components/sections/InteractiveSimulations'
 import { GokhushHeroVideo } from '@/components/sections/HeroVideoSection'
 import GokhushTestimonials from '@/components/sections/TestimonialsSection'
@@ -23,7 +22,6 @@ export default function Home() {
       {/* Main Layout with Dock Navigation */}
       <main className="min-h-screen bg-brand-black">
         <HeroWithStory />
-        <PhoneTransition />
         <InteractiveSimulations />
         <GokhushHeroVideo />
         <GokhushTestimonials />

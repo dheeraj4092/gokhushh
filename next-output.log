@@ -1,0 +1,2 @@
+npm warn Unknown project config "supportedArchitectures[os]". This will stop working in the next major version of npm.
+npm warn Unknown project config "supportedArchitectures[cpu]". This will stop working in the next major version of npm.

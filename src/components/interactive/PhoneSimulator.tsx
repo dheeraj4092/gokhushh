@@ -18,7 +18,7 @@ const PhoneSimulator = ({
   allowFullscreen = true,
   deviceType = 'iphone-14-pro'
 }: PhoneSimulatorProps) => {
-  const [isFullscreen, setIsFullscreen] = useState(true) // Default to fullscreen
+  const [isFullscreen, setIsFullscreen] = useState(false) // Default to fullscreen
 
   // iPhone 14 Pro dimensions: 393×852px (19.5:9 ratio)
   // Scaled down for web display
@@ -113,7 +113,7 @@ const PhoneSimulator = ({
                 <div className="flex items-center gap-1">
                   <span className="opacity-90">9:41</span>
                 </div>
-                <div className="flex items-center gap-1 opacity-90">
+                <div className="flex items-center gap-0.5 opacity-90">
                   {/* Signal bars */}
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4].map((bar) => (
@@ -181,7 +181,7 @@ const PhoneSimulator = ({
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="relative"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
           >
             <div className="relative w-[340px] h-[697px] max-w-[90vw] max-h-[90vh]">
               {/* Outer glow */}

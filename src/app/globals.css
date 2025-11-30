@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Removed external Google Fonts @import (Inter) to prevent dev timeout.
+  Using next/font in layout for local optimized font loading. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,7 +12,9 @@
   }
   
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* System font stack after removing remote Inter font */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     /* Prevent horizontal scroll on mobile */
     overflow-x: hidden;

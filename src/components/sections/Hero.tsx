@@ -1,10 +1,35 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { content } from '@/lib/constants'
+import { useRef } from 'react'
+import Image from 'next/image'
+
+// ============================================
+// LOGO PLACEMENT CONFIGURATION
+// Change this value to switch between designs:
+// 'watermark' - Large faint background logo
+// 'corner' - Top-left corner positioned logo
+// 'floating' - Animated floating logo with parallax
+// ============================================
+const LOGO_PLACEMENT: 'watermark' | 'corner' | 'floating' = 'watermark'
+
+// Logo asset path - easy to configure
+const LOGO_PATH = '/logo.png'
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  })
+  
+  // Parallax transforms for floating logo
+  const logoY = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const logoScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
   const scrollToNext = () => {
     const nextSection = document.getElementById('story-cards')
     if (nextSection) {
@@ -13,13 +38,144 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-screen relative bg-[#030303]">
+    <section ref={sectionRef} className="min-h-screen relative bg-[#030303]">
       {/* Geometric Background with Custom Content */}
       <div className="absolute inset-0">
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
           
+          {/* ============================================
+              OPTION 1: Logo as Watermark Background
+              Large, centered, very low opacity
+              ============================================ */}
+          {LOGO_PLACEMENT === 'watermark' && (
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+            >
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.02, 1],
+                  rotate: [0, 1, 0]
+                }}
+                transition={{ 
+                  duration: 20, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+                className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px]"
+              >
+                <Image
+                  src={LOGO_PATH}
+                  alt=""
+                  fill
+                  className="object-contain opacity-[0.03] blur-[1px]"
+                  aria-hidden="true"
+                  priority
+                />
+              </motion.div>
+            </motion.div>
+          )}
+
+          {/* ============================================
+              OPTION 2: Logo in Top-Left Corner
+              Clean, professional positioning
+              ============================================ */}
+          {LOGO_PLACEMENT === 'corner' && (
+            <motion.div
+              className="absolute top-6 left-6 md:top-8 md:left-8 lg:top-10 lg:left-10 z-20"
+              initial={{ opacity: 0, x: -20, y: -20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gokhush-green/20 blur-xl rounded-full" />
+                <Image
+                  src={LOGO_PATH}
+                  alt="Go Khush Logo"
+                  width={120}
+                  height={48}
+                  className="relative h-10 md:h-12 lg:h-14 w-auto drop-shadow-[0_0_20px_rgba(34,197,94,0.3)]"
+                  priority
+                />
+              </motion.div>
+            </motion.div>
+          )}
+
+          {/* ============================================
+              OPTION 3: Floating Logo with Parallax
+              Creative, modern, animated
+              ============================================ */}
+          {LOGO_PLACEMENT === 'floating' && (
+            <>
+              {/* Main floating logo - top right */}
+              <motion.div
+                className="absolute top-[15%] right-[5%] md:right-[10%] z-10 pointer-events-none"
+                style={{ y: logoY, scale: logoScale, opacity: logoOpacity }}
+                initial={{ opacity: 0, y: -50, rotate: -10 }}
+                animate={{ opacity: 0.15, y: 0, rotate: 5 }}
+                transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, -20, 0],
+                    rotate: [5, 8, 5]
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="relative w-[150px] h-[60px] md:w-[200px] md:h-[80px] lg:w-[250px] lg:h-[100px]"
+                >
+                  <Image
+                    src={LOGO_PATH}
+                    alt=""
+                    fill
+                    className="object-contain drop-shadow-[0_0_30px_rgba(34,197,94,0.4)]"
+                    aria-hidden="true"
+                  />
+                </motion.div>
+              </motion.div>
+
+              {/* Secondary floating logo - bottom left */}
+              <motion.div
+                className="absolute bottom-[20%] left-[5%] md:left-[8%] z-10 pointer-events-none"
+                initial={{ opacity: 0, y: 50, rotate: 10 }}
+                animate={{ opacity: 0.1, y: 0, rotate: -8 }}
+                transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, 15, 0],
+                    rotate: [-8, -5, -8]
+                  }}
+                  transition={{ 
+                    duration: 10, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="relative w-[100px] h-[40px] md:w-[150px] md:h-[60px]"
+                >
+                  <Image
+                    src={LOGO_PATH}
+                    alt=""
+                    fill
+                    className="object-contain blur-[0.5px]"
+                    aria-hidden="true"
+                  />
+                </motion.div>
+              </motion.div>
+            </>
+          )}
+
           {/* Animated shapes */}
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
@@ -56,6 +212,31 @@ const Hero = () => {
           {/* Main Content */}
           <div className="relative z-10 container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto text-center">
+              {/* Center Logo - Shows when corner or floating placement is active */}
+              {LOGO_PLACEMENT !== 'corner' && (
+                <motion.div 
+                  className="flex justify-center mb-8 md:mb-12"
+                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="relative"
+                  >
+                    <div className="absolute inset-0 bg-gokhush-green/30 blur-2xl rounded-full" />
+                    <Image
+                      src={LOGO_PATH}
+                      alt="Go Khush Logo"
+                      width={200}
+                      height={80}
+                      className="relative h-16 md:h-20 w-auto drop-shadow-[0_0_25px_rgba(34,197,94,0.4)]"
+                      priority
+                    />
+                  </motion.div>
+                </motion.div>
+              )}
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
