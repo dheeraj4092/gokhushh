@@ -13,7 +13,7 @@ import Image from 'next/image'
 // 'corner' - Top-left corner positioned logo
 // 'floating' - Animated floating logo with parallax
 // ============================================
-const LOGO_PLACEMENT: 'watermark' | 'corner' | 'floating' = 'watermark'
+const LOGO_PLACEMENT = 'watermark' as 'watermark' | 'corner' | 'floating'
 
 // Logo asset path - easy to configure
 const LOGO_PATH = '/logo.png'
